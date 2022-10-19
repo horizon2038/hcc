@@ -9,7 +9,9 @@ void init_asm();
 int main(int argc, char *argv[])
 {
     init(argc);
-    init_asm();
+    char *p = argv[1];
+    init_asm(&p);
+    
 }
 
 void init(int argc)
@@ -23,11 +25,17 @@ void validate_argc(int argc)
     if(argc != 2)
     {
         printf("invalid argc");
-        return 1;
     }
 }
 
 void print_version()
 {
-    printf("Version 0")
+    printf("Version 0.0.1");
+}
+
+void init_asm(char* p)
+{
+    printf(".intel_syntax noprefix\n");
+    printf(".globl main\n");
+    printf("main:\n");
 }
